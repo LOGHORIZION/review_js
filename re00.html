@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  console.log('helloworld')
+  //注释内容
+/*注释内容*/
+  let num = 123
+  console.log(typeof(num))
+  let k
+  console.log(typeof(k))
+  let j = undefined
+  console.log(typeof(j))
+  let m = null
+  console.log(typeof(m))
+// 创建对象有两种方式
+  // let person = new Object;
+  // person.name = "wukong";
+  // person.age =18;
+  // let person2 = {
+  //   name: "bajie",
+  //   age:20
+  // }
+  // console.log('wukong'+person.age +'old' )
+  // let print = function(p){
+  //   console.log( p.name+' is '+p.age +'years old' )
+  // }
+  // print(person2);
+  // print(person);
+  //构造函数
+  function MyClass(a,b){
+    this.name= a;
+    this.age = b;
+    this.print =  function(){
+      console.log(  this.name+' is '+ this.age +' years old' )
+    }
+  }
+  let person = new MyClass("wukong", 18)
+  person.print()
+  document.write("看我出不出来~~~");
+  /*使用new关键字执行一个构造函数时：
+– 首先，会先创建一个空的对象。
+– 然后，会执行相应的构造函数。构造函数中的this将会引用这个新对象。
+– 最后，将对象作为执行结果返回。
+构造函数的首字母要大写。
+删除属性
+– delete 对象.属性名
+
+需要注意的是prototype属性只存在于函数对象中，其他对象
+是没有prototype属性的
+每一个对象都有原型，包括原型对象也有原型。特殊的是
+Object的原型对象没有原型。
+变量 instanceof 类型
+这个链的次序是：mc对象、mc对象原型、原型的原型（Object）、Object的原型
+• 当从一个对象中获取属性时，会首先从当前对象中查找，如果没有则顺着向
+上查找原型对象，直到找到Object对象的原型位置，找到则返回，找不到则
+返回undefined
+*/
+
+  </script>
+  <script src="./js/script.js"></script>
+</head>
+<body>
+<!-- ECMAScript是一个标准，而这个标准需要由各个厂商去实现
+chrome v8
+一个完整的JavaScript实现应该由以下三个部分构成：
+ECMAScript DOM BOM
+JS的特点
+解释型语言
+  所谓解释型值语言不需要被编译为机器码在执行，而是直接执行。
+
+动态语言
+  所谓的动态语言可以暂时理解为
+  在语言中的一切内容都是不确定的。比如一个变量，这一时刻
+  是个整型，下一时刻可能会变成字符串了
+– 基于原型的面向对象
+
+JS代码需要编写到<script>标签中。
+  我们一般将script标签写到head中
+
+严格区分大小写
+– 单行注释：//注释内容
+/*注释内容*/
+标识符 首字母字母、下划线（ _ ）或一个美元符号（ $ ）
+JavaScript中一共有5种基本数据类型：
+– 字符串型（String）
+– 数值型（Number）
+– 布尔型（Boolean）
+– null型（Null）
+– undefined型（Undefined）
+• 这5种之外的类型都称为Object，所以总的来看JavaScript中共有六种数
+据类型。
+typeof操作符可以用来检查一个变量的数据类型
+
+将其他数值转换为字符串有三种方式：toString()、String()、
+拼串。
+NaN，即非数值（Not a Number）是一个特殊的数值，JS中
+当对数值进行计算时没有结果返回，则返回NaN
+有三个函数可以把非数值转换为数值：Number()、parseInt()和parseFloat()。
+Number()可以用来转换任意类型的数据，而后两者只能用于转换字符串。
+null表示的是一个空的对象
+undefined值实际上是由null值衍生出来的，所以如果比较
+undefined和null是否相等，会返回true；
+非使用符号 ! 表示，与使用 && 表示，或使用 || 表示
+===表示全等，他和==基本一致，不过==在判断两个值
+时会进行自动的类型转换，而===不会。
+”55”==55会返回true，而”55”===55会返回
+false；
+同样我们还有!==表示不全等，同样比较时不会自动转型。
+JavaScript中的函数也是一个对象
+在 Web 浏览器中，全局执
+行环境被认为是 window 对象，因此所有全局变量和函数都是作为
+window 对象的属性和方法创建的。
+-->
+<a href="javascript:alert('click me')">click</a>
+<table border="1" width="20%" align="center">
+
+  <!--在table标签中使用tr来表示表格中的一行，有几行就有几个tr-->
+  <tr>
+    <!--在tr中使用td表示一个单元格，有几个td就有几个单元格-->
+    <td>A1</td>
+    <td>A2</td>
+    <td>A3</td>
+    <td>A4</td>
+  </tr>
+
+  <tr>
+    <td>B1</td>
+    <td>B2</td>
+    <td>B3</td>
+    <!--
+      使用rowspan来纵向的合并单元格
+    -->
+    <td rowspan="2">B4</td>
+  </tr>
+
+  <tr>
+    <td>C1</td>
+    <td>C2</td>
+    <td>C3</td>
+  </tr>
+
+  <tr>
+    <td>D1</td>
+    <td>D2</td>
+    <!--
+
+      使用colspan来横向的合并单元格
+    -->
+    <td colspan="2">D3</td>
+  </tr>
+
+</table>
+<form action="./target.html">
+  <div>enter content<input type="text">
+  <button type="reset">reset</button>
+  <button type="submit">submit</button>
+  password <input type="password" name="pwd" id="p1">
+  <input type="month">
+  <input type="radio" name='gender'>nan
+  <input type="radio" name='gender' checked="checked">nv
+
+  <input type="checkbox" name="hobby" value="lq" />篮球
+  <input type="checkbox" name="hobby" value="ymq" checked="checked" />羽毛球
+  <select name="star">
+    <option value="fbb">范冰冰</option>
+    <option value="zw" >赵薇</option>
+    <option value="lxr" selected="selected">林心如</option>
+  </select>
+  <input type="reset" />
+  <input type="button" value="按钮" />
+
+  </div>
+
+</form>
+</body>
+</html>
