@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day12</title>
+  <script>
+			function fun(a,b) {
+        console.log(arguments.length);
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+				console.log("a = "+a);
+				console.log("b = "+b);
+				//alert(this);
+			}
+
+			// var obj = {
+			// 	name: "obj",
+			// 	sayName:function(){
+			// 		alert(this.name);
+			// 	}
+			// };
+      var obj;
+      fun.apply(obj,[2,3]);
+
+      // 日期的格式  月份/日/年 时:分:秒
+      let d=new Date();
+      console.log(d);
+      var day = d.getDay();
+      console.log(day); //	0 表示周日
+      d = d.getDate();
+      console.log(d);
+      // abs()可以用来计算一个数的绝对值
+      // 	Math.PI 表示的圆周率
+      // 			/*
+			//  * Math.ceil()
+			//  * 	- 可以对一个数进行向上取整，小数位只有有值就自动进1
+			//  * Math.floor()
+			//  * 	- 可以对一个数进行向下取整，小数部分会被舍掉
+			//  * Math.round()
+			//  * 	- 可以对一个数进行四舍五入取整
+			//  */
+      // Math.random()
+      // * 	- 生成一个1-10
+			//  * 	- 生成一个x-y之间的随机数
+			//  * 		Math.round(Math.random()*(y-x)+x)
+      // * 在JS中为我们提供了三个包装类，通过这三个包装类可以将基本数据类型的数据转换为对象
+			//  * 	String()
+			//  * 		- 可以将基本数据类型字符串转换为String对象
+			//  * 	Number()
+			//  * 		- 可以将基本数据类型的数字转换为Number对象
+			//  *  Boolean()
+			//  * 		- 可以将基本数据类型的布尔值转换为Boolean对象
+			//  * 	但是注意：我们在实际应用中不会使用基本数据类型的对象，
+			//  * 		如果使用基本数据类型的对象，在做一些比较时可能会带来一些不可预期的结果
+
+      //  charAt()
+      // * indexof()
+			//  * 	- 该方法可以检索一个字符串中是否含有指定内容
+			//  * 	- 如果字符串中含有该内容，则会返回其第一次出现的索引
+			//  * 		如果没有找到指定的内容，则返回-1
+			//  * 	- 可以指定一个第二个参数，指定开始查找的位置
+      console.log('sorry ,li'.indexOf('ry'));
+      			/*
+			 * substring()
+			 * 	- 可以用来截取一个字符串，可以slice()类似
+			 * 	- 参数：
+			 * 		- 第一个：开始截取位置的索引（包括开始位置）
+			 * 		- 第二个：结束位置的索引（不包括结束位置）
+			 * 		- 不同的是这个方法不能接受负值作为参数，
+			 * 			如果传递了一个负值，则默认使用0
+			 * 		- 而且他还自动调整参数的位置，如果第二个参数小于第一个，则自动交换
+			 */
+      //  var 变量 = /正则表达式/匹配模式
+      			/*
+			 * []里的内容也是或的关系
+			 * [ab] == a|b
+			 * [a-z] 任意小写字母
+			 * [A-Z] 任意大写字母
+			 * [A-z] 任意字母
+			 * [0-9] 任意数字
+       * * [^ ] 除了
+			 */
+       reg = /[^0-9]/;
+
+			console.log(reg.test("123456"));
+      str ='sds343sd83'
+      console.log(str.split(/343/));
+      console.log(str.search(/343/));
+      str = "1a2a3a4a5e6f7A8B9C";
+
+			result = str.match(/[a-z]/ig);
+
+			console.log(result);
+  </script>
+</head>
+<body>
+  <!-- day12 -->
+
+</body>
+</html>

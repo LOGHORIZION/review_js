@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- day 10 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  var obj = {
+    name:"孙悟空",
+    age:18,
+    gender:"男",
+    address:"花果山"
+    };
+    // 遍历属性
+    for(var n in obj){
+				console.log("属性名:"+n);
+
+				console.log("属性值:"+obj[n]);
+			}
+    //数组 增删改
+    // arr = new Array(1,2,3);
+    // console.log(arr);
+    // arr.push(4,5);
+    // console.log(arr);
+    // arr.pop(4);
+    // console.log(arr);
+    // let num = arr.pop(-1);
+    // console.log(arr);
+    // console.log(' num' +  num);
+    // let length = arr.unshift(0);
+    // console.log(arr);
+    // console.log(arr[2]);
+    // for (let i in arr){
+    //   console.log(i);
+    // }
+    // 回调函数：由我们创建但是不由我们调用的，我们称为回调函数
+    // arr1 = [1,-2,4,5,-6,7,-9,0];
+    // 设最后位0 表示数组正数的个数 求正确格式
+    // console.log('prac ');
+    // arr1.forEach(function(value , index , obj){
+		// 		console.log(value);
+    //     if (value > 0){
+    //       // arr1[-1]++;
+    //       console.log('the '+index+ ' elem is '+value);
+    //       console.log(obj);
+    //     }
+		// 	});
+    // console.log(arr1);
+    var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+    arr.splice(2,2);
+		console.log(arr);
+    // var result = arr.slice(1,4);
+    // console.log(result);
+    // result = arr.slice(3);
+    // console.log(result);
+    // result = arr.slice(1,-2);
+    // console.log(result);
+    //concat()可以连接两个或多个数组，并将新的数组返回
+    arr = ["孙悟空","猪八戒","沙和尚","唐僧"];
+
+		result = arr.join("@-@");
+    console.log(result);
+    // reverse()
+		// 	 * 	- 该方法用来反转数组（前边的去后边，后边的去前边）
+    let p1 = {name:'jack',age:16};
+    let p2 = {name:'jam',age:66};
+    let p3 = {name:'jat',age:6};
+    arr1 = [p1,p2,p3];
+    // 按年龄排序 如果返回一个大于0的值，则元素会交换位置
+    arr2 = arr1.sort( (e1,e2) =>{return e1.age -e2.age })
+    console.log(arr2);
+  </script>
+</head>
+<body>
+  <!--
+    JS中一共有六种数据类型
+    string number boolean NULL Undifined基本数据类型
+    Object 引用数据类型
+    Number类型 包括整数和浮点数
+
+
+    数据类型转换为String
+      调用被转换数据类型的toString()方法
+      String()函数
+      我们只需要为任意的数据类型 + 一个 "" 即可将其转换为String
+    其他的数据类型转换为Number
+      使用Number()函数
+      parseInt() 把一个字符串转换为一个整数
+        可以在parseInt()中传递一个第二个参数，来指定数字的进制
+      parseFloat() 把一个字符串转换为一个浮点数
+    调用Boolean()函数来将a转换为布尔值
+      除了0和NaN，其余的都是true
+      除了空串，其余的都是true
+      null和undefined都会转换为false
+  		* 		switch(条件表达式){
+			 * 			case 表达式:
+			 * 				语句...
+			 * 				break;
+			 *  		case 表达式:
+			 * 				语句...
+			 * 				break;
+			 * 			default:
+			 * 				语句...
+			 * 				break;
+			 * 		}
+			 * 对象的分类：
+			 * 	1.内建对象
+			 * 		- 由ES标准中定义的对象，在任何的ES的实现中都可以使用
+			 * 		- 比如：Math String Number Boolean Function Object....
+			 *
+			 * 	2.宿主对象
+			 * 		- 由JS的运行环境提供的对象，目前来讲主要指由浏览器提供的对象
+			 * 		- 比如 BOM DOM
+			 *
+			 * 	3.自定义对象
+			 * 		- 由开发人员自己创建的对象
+       			 * 变量的声明提前
+			 * 	- 使用var关键字声明的变量，会在所有的代码执行之前被声明（但是不会赋值），
+			 * 		但是如果声明变量时不适用var关键字，则变量不会被声明提前
+			 *
+			 * 函数的声明提前
+			 * 	- 使用函数声明形式创建的函数 function 函数(){}
+			 * 		它会在所有的代码执行之前就被创建，所以我们可以在函数声明前来调用函数
+			 * 	   使用函数表达式创建的函数，不会被声明提前，所以不能在声明前调用
+
+       2.以方法的形式调用时，this就是调用方法的那个对象
+   -->
+</body>
+
+</html>

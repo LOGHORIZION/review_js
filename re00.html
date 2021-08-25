@@ -41,7 +41,25 @@
   }
   let person = new MyClass("wukong", 18)
   person.print()
+  // 普通函数是直接调用，而构造函数需要使用new关键字来调用
   document.write("看我出不出来~~~");
+			/*
+			 * 使用工厂方法创建对象
+			 * 	通过该方法可以大批量的创建对象
+			 */
+       function createPerson(name , age ,gender){
+				//创建一个新的对象
+				var obj = new Object();
+				//向对象中添加属性
+				obj.name = name;
+				obj.age = age;
+				obj.gender = gender;
+				obj.sayName = function(){
+					alert(this.name);
+				};
+				//将新的对象返回
+				return obj;
+			}
   /*使用new关键字执行一个构造函数时：
 – 首先，会先创建一个空的对象。
 – 然后，会执行相应的构造函数。构造函数中的this将会引用这个新对象。
