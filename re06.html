@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function(){
+      sabtn = document.getElementById('selectAll');
+      sabtn.onclick  = ()=>{
+        lis = document.getElementsByName('sport');
+        console.log(lis);
+        for(let i=0;i<lis.length;i++){
+          lis[i].checked = true;
+        }
+      }
+    let dis =document.getElementById('dis');
+    dis.onclick =()=>{
+      let str = '';
+      lis = document.getElementsByName('sport');
+      for(let i=0;i<lis.length-1;i++){
+          if (lis[i].checked ){
+            str += ' ' + lis[i].value;
+          }
+      }
+      if(lis[3].checked ){
+        let content = document.getElementById('self_defined_ipt');
+        str += ' '+ content.value;
+      }
+      alert(str);
+    }
+    }
+
+  </script>
+</head>
+<body>
+  <form action="">
+    <p>你爱好的运动是？</p>
+
+    <ul>
+      <li><input type="checkbox" name="sport" value='soccer'>soccer</li>
+      <li><input type="checkbox" name="sport" value='tennis'>tennis</li>
+      <li><input type="checkbox" name="sport" value='badminton'>badminton</li>
+      <li><input type="checkbox" name ='sport' id ='self_defined'> <input type="text" id ='self_defined_ipt'></li>
+    </ul>
+    <button type="reset">reset</button>
+    <!-- <button id = 'selectAll'>select all</button> -->
+    <input type="button" id="selectAll" value="全　选" />
+    <input type="button" value="submit" id ='dis'>
+  </form>
+</body>
+</html>
