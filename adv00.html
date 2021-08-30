@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(javascript实战进阶P5 后半部分</title>
+  <script>
+    //全局变量 局部变量保存在 栈内存
+    //对象的数据存储在 堆内存
+    // 全局变量 不会被回收
+    // 局部变量在函数执行结束后 被回收
+    //分析栈内存，堆内存
+    // a 本身代表的地址值存储在栈内存
+    // a 指向数据 存储在 堆内存
+    let a = {name:'ori',age:18};
+    console.log(a.age); //18
+    function test(b){
+      b.age = 19;
+    }
+    test(a);
+    console.log(a.age);//19
+    function test2(b){
+      // b 是局部变量
+      //b 一开始是a的地址
+      b  = {age:0};// b的地址是新的
+      //a 没有被改变
+      // b 被释放空间
+    }
+    test2(a);
+    console.log(a.age);//19
+    a =null; //free memory
+  </script>
+</head>
+<body>
+
+</body>
+</html>
