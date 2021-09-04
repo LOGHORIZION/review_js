@@ -8,7 +8,141 @@
 </head>
 <body>
 <script>
-  
+  function Fn(){
+
+  }
+  Fn.prototype.a = 'xxx'
+  let fn1 = new Fn();
+  console.log(fn1.a);
+  let fn2 = new Fn();
+  fn2.a ='yyy';
+  console.log(fn1.a, fn2.a);
+//实例对象 隐式原型的值为其对应构造函数的显示原型
+//Object 的隐式原型 为原型链的尽头
+// A instanceof B
+//A 必须有隐式原型属性 B 必须有显示原型属性
+// A 沿着原型链__proto__ 向上找
+//看是否指向B的显示原型 若能 则返回true
+console.log(Function instanceof Object);
+console.log(  Object instanceof Function );  //true
+console.log(Object instanceof Object); //true
+
+//P 21 面试题
+function A(){
+
+}
+A.prototype.n=1
+let b= new A()
+A.prototype ={n:2,m:3}
+let c= new A()
+console.log(b.n,b.m, c.n,c.m);
+console.log(A.prototype);
+//q2
+
+function F(){}
+Object.prototype.a = function(){
+  console.log('a()');
+}
+Function.prototype.b = function(){
+  console.log('b()');
+}
+let f =new F();
+f.a();
+// f.b();//not a Function
+// Function.b(); //b()
+F.b();
+F.a();
+
+let a =3;
+function fn(){
+  console.log(a);//not defined err
+  let a = 4;
+}
+// fn()
+// console.log( banna);not defined err
+// console.log(undefined);
+
+// console.log(vara);
+// let vara=3;
+//伪数组
+function test(x){
+  console.log(arguments);
+  for(let i=0;i<arguments.length;i++){
+    console.log(arguments[i]);
+  }
+  console.log(x);
+}
+test(2,3);
+
+// 1. 代码分类(位置)
+//   * 全局代码
+//   * 函数(局部)代码
+// 2. 全局执行上下文
+//   * 在执行全局代码前将window确定为全局执行上下文
+//   * 对全局数据进行预处理
+//     * var定义的全局变量==>undefined, 添加为window的属性
+//     * function声明的全局函数==>赋值(fun), 添加为window的方法
+//     * this==>赋值(window)
+//   * 开始执行全局代码
+// 3. 函数执行上下文
+//   * 在调用函数, 准备执行函数体之前, 创建对应的函数执行上下文对象(虚拟的, 存在于栈中)
+//   * 对局部数据进行预处理
+//     * 形参变量==>赋值(实参)==>添加为执行上下文的属性
+//     * arguments==>赋值(实参列表), 添加为执行上下文的属性
+//     * var定义的局部变量==>undefined, 添加为执行上下文的属性
+//     * function声明的函数 ==>赋值(fun), 添加为执行上下文的方法
+//     * this==>赋值(调用函数的对象)
+//   * 开始执行函数体代码
+
+/*
+1. 在全局代码执行前, JS引擎就会创建一个栈来存储管理所有的执行上下文对象
+2. 在全局执行上下文(window)确定后, 将其添加到栈中(压栈)
+3. 在函数执行上下文创建后, 将其添加到栈中(压栈)
+4. 在当前函数执行完后,将栈顶的对象移除(出栈)
+5. 当所有的代码执行完后, 栈中只剩下window
+*/
+console.log('gb: '+ i)
+  var i = 1
+  foo(1)
+  function foo(i) {
+    if (i == 4) {
+      return
+    }
+    console.log('fb:' + i)
+    foo(i + 1) //递归调用: 在函数内部调用自己
+    console.log('fe:' + i)
+  }
+  console.log('ge: ' + i)
+
+// function aa(){}
+// let aa;
+// console.log(typeof aa);
+
+  /*
+   测试题1:  先执行变量提升, 再执行函数提升
+   */
+  //  function a() {}
+  // var a
+  // console.log(typeof a) // 'function'
+
+
+  /*
+   测试题2:
+   */
+  if (!(b in window)) {
+    var b = 1
+  }
+  console.log(b) // undefined
+
+  /*
+   测试题3:
+   */
+  var c = 1
+  function c(c) {
+    console.log(c)
+    var c = 3
+  }
+  c(2) // 报错
 </script>
 </body>
 </html>
