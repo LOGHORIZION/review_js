@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <div id="result" style="width:200px;height:100px;background-color:#bfa"></div>
+  <script>
+    const result = document.getElementById('result');
+    window.onkeydown=()=>{
+      // console.log('!');
+      //1 创建对象
+      const xhr = new XMLHttpRequest();
+      xhr.responseType ='json';//z自动类型转换
+
+      //2 设置请求方法 初始化 设置请求方法和 url   设置url参数
+      xhr.open('GET', 'http://127.0.0.1:8000/json-server');
+      //3 发送
+      xhr.send();
+      //4 接收返回端
+      xhr.onreadystatechange = ()=>{
+        if(xhr.readyState === 4){
+          if (xhr.status >=200 && xhr.status<300){
+            console.log(xhr.response);
+            // result.innerHTML = xhr.response;
+            //手动转换 json字符串 转成object
+            // let data = JSON.parse(xhr.response);
+            // console.log(data);
+            // result.innerHTML = data.name;
+            result.innerHTML =xhr.response.name;
+
+            //安装了nodemon 快捷的自动重启server //D:\Projects\JAVAScript\JS\practice\ajax目录下
+            // nodemon myserver.js
+            // npm install -g nodemon
+            //为在此系统上禁止运行脚本 解决 管理员 powershell  set-ExecutionPolicy RemoteSigned
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

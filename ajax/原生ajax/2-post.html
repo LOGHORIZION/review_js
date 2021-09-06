@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX post 请求</title>
+  <style>
+    #result{
+        width:200px;
+        height:100px;
+        border:solid 1px #90b;
+    }
+</style>
+</head>
+<body>
+  <button id='btn1'>发送post 请求</button>
+  <div id="result"></div>
+  <script>
+    const btn1 = document.getElementById('btn1');
+    const result = document.getElementById("result");
+    btn1.addEventListener('click',()=>{
+      //1. 创建对象
+      const xhr = new XMLHttpRequest();
+
+      //2. 初始化 设置请求方法和 url   设置url参数
+      xhr.open('POST', 'http://127.0.0.1:8000/server');
+      //set request header
+      // 'Content-Type'设置请求体 内部类型 头的名字 这个Content-Type是内置的 也可以自定义
+      // 自定义需要在后端添加响应头 否则报错
+      // 后面是参数查询字符串的类型 固定写法
+      //setRequestHeader 是重点 主要作用 发送用户信息，对用户信息校验
+      xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+      xhr.setRequestHeader('name','atguigu');
+      //3. 发送
+      xhr.send('a=100&b=20');
+      //4. 事件绑定 处理服务端返回的结果
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState ===4){
+          if(xhr.status >=200 && xhr.status <300){
+            console.log(xhr.status);//状态码
+            console.log(xhr.statusText);//状态字符串
+            console.log(xhr.getAllResponseHeaders());//所有响应头
+            console.log(xhr.response);//响应体
+            result.innerHTML = xhr.response;
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
